@@ -1,1 +1,1 @@
-select 1, {{asdf}}    
+select 1, :asdf 
