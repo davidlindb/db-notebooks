@@ -4,6 +4,7 @@ import string
 import zipfile
 import argparse
 import shutil
+import uuid
 
 def generate_random_file(file_name, size_in_mb, rand, ext, result_size):
     """
@@ -11,7 +12,9 @@ def generate_random_file(file_name, size_in_mb, rand, ext, result_size):
     """
     with open(file_name, 'w') as f:
         if (ext == 'dbc'):
-            f.write('{"version":"NotebookV1","origId":3043243669922456,"name":"Untitled Notebook 2024-09-24 11:27:38","language":"sql","commands":[{"version":"CommandV1","origId":3043243669922457,"guid":"68255229-76ab-44f8-8105-2378ce0c56f0","subtype":"command","commandType":"auto","position":1.0,"command":"')
+            f.write('{"version":"NotebookV1","origId":3043243669922456,"name":"')
+            f.write(str(uuid.uuid4()))
+            f.write('","language":"sql","commands":[{"version":"CommandV1","origId":3043243669922457,"guid":"68255229-76ab-44f8-8105-2378ce0c56f0","subtype":"command","commandType":"auto","position":1.0,"command":"')
         else:
             f.write('# Databricks notebook source\n')
         for _ in range(int(size_in_mb * 1024 * 1024)):
@@ -43,7 +46,7 @@ def create_zip_file(zip_name, file_name):
 def main(ext, size, rand, result_size):
     file_name = 'notebook1.sql'
     randStr = "rand" if rand else "notrand"
-    zip_name = f'{size}mb_{randStr}.{ext}'
+    zip_name = f'{size}mb_code_{result_size}mb_result_{randStr}.{ext}'
     
     # Step 1: Generate a file with random content of the specified size
     generate_random_file(file_name, size, rand, ext, result_size)
