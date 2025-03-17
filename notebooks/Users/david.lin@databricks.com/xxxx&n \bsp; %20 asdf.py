@@ -124,33 +124,26 @@ display(_sqldf)
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC r"""select '\"' as x"""
+r"""select '\"' as x"""
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC len(r"""\"""")
+len(r"""\"""")
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC from __future__ import print_function
-# MAGIC from ipywidgets import interact, interactive, fixed, interact_manual
-# MAGIC import ipywidgets as widgets
-# MAGIC
+from __future__ import print_function
+from ipywidgets import interact, interactive, fixed, interact_manual
+import ipywidgets as widgets
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC def f(x):
-# MAGIC     return x
+def f(x):
+    return x
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC interact(f, x=10);
-# MAGIC
+interact(f, x=10);
 
 # COMMAND ----------
 
@@ -163,8 +156,7 @@ display(_sqldf)
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC display(sql(f"""select '""""' as x """))
+display(sql(f"""select '""""' as x """))
 
 # COMMAND ----------
 
@@ -210,9 +202,8 @@ display(_sqldf)
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC df = sql(r"""select regexp_replace(color, '\\+',  " ") from diamonds""")
-# MAGIC display(df)
+df = sql(r"""select regexp_replace(color, '\\+',  " ") from diamonds""")
+display(df)
 
 # COMMAND ----------
 
@@ -228,8 +219,7 @@ display(_sqldf)
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC sql("select 1")
+sql("select 1")
 
 # COMMAND ----------
 
@@ -237,8 +227,7 @@ display(_sqldf)
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC displayHTML("xxx&#31;xxx")
+displayHTML("xxx&#31;xxx")
 
 # COMMAND ----------
 
@@ -254,14 +243,12 @@ display(_sqldf)
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC import os
-# MAGIC os.getcwd()
+import os
+os.getcwd()
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC !pwd
+!pwd
 
 # COMMAND ----------
 
@@ -281,10 +268,9 @@ displayHTML("""<script>console.log('XXX', document.cookie)</script>""")
 
 # COMMAND ----------
 
-# MAGIC %python 
-# MAGIC display(sql("select 1"))
-# MAGIC sql("select 1").show()
-# MAGIC display(sql("select 1"))
+display(sql("select 1"))
+sql("select 1").show()
+display(sql("select 1"))
 
 # COMMAND ----------
 
@@ -292,9 +278,8 @@ displayHTML("""<script>console.log('XXX', document.cookie)</script>""")
 
 # COMMAND ----------
 
-# MAGIC %python 
-# MAGIC import time
-# MAGIC time.sleep(60)
+import time
+time.sleep(60)
 
 # COMMAND ----------
 
@@ -309,4 +294,5 @@ displayHTML("""<script>console.log('XXX', document.cookie)</script>""")
 # MAGIC %sql select 1
 
 # COMMAND ----------
+
 
